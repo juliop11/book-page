@@ -3,115 +3,18 @@
     background-image: url("https://img.freepik.com/foto-gratis/vista-frontal-escritorio-libros-apilados-espacio-copiar_23-2148827255.jpg?size=626&ext=jpg&ga=GA1.2.939502610.1676634689&semt=sph");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 180vh;
-    display: flex;
-    flex-direction: column;
-   
+
 }
 
 .cards {
-    /* border: 2px solid black;  */
-    height: 100%;
-    width: 100%;
-}
-
-.card {
-    width: 350px;
-    height: 480px;
-    padding: .8em;
-    background: #f5f5f5;
-    position: relative;
-    overflow: visible;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    margin: 3%;
-}
-
-.card-img {
-    background-color: #ffcaa6;
-    height: 55%;
-    width: 100%;
-    border-radius: .5rem;
-    transition: .3s ease;
-    background-size: cover;
-
-}
-
-.card-info {
-    padding-top: 10%;
-}
-
-svg {
-    width: 20px;
-    height: 20px;
-}
-
-.card-footer {
+    /* border: 2px solid rgb(255, 0, 0); */
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 10px;
-    border-top: 1px solid #ddd;
+    justify-content: space-around;
+  
 }
 
-/*Text*/
-.text-title {
-    font-weight: 900;
-    font-size: 1.2em;
-    line-height: 1.5;
-}
 
-.text-body {
-    font-size: .9em;
-    padding-bottom: 10px;
-}
-
-/*Button*/
-.card-button {
-    border: 1px solid #252525;
-    display: flex;
-    padding: .3em;
-    cursor: pointer;
-    border-radius: 50px;
-    transition: .3s ease-in-out;
-}
-
-/*Hover*/
-.card-img:hover {
-    transform: translateY(-25%);
-    box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
-}
-
-.card-button:hover {
-    border: 1px solid #ffcaa6;
-    background-color: #ffcaa6;
-}
-
-.noHay {
-    display: flex;
-    justify-content: center;
-
-    height: 100%;
-    width: 100%;
-}
-
-.ngif {
-    border: 1px solid #252525;
-    backdrop-filter: blur(10px);
-    height: 30%;
-    width: 50%;
-    font-size: 50px;
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    align-items: center;
-}
-.color1{
-    background-color: yellow;
-}
-.color2{
-    background-color: rgb(255, 0, 0);
-}
 .form {
     border: 3px solid rgb(71, 71, 71);
     background-color: white;
@@ -122,29 +25,30 @@ svg {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
-   justify-content: center;
-   align-self: center;
-  }
-  
-  .añadir{
+    box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.75);
+    justify-content: center;
+    align-self: center;
+}
+
+.añadir {
     /* border: 3px solid rgb(0, 0, 0); */
     height: 60%;
+    width: 100%;
     display: flex;
-  justify-content: center;
-  }
+    justify-content: center;
+}
 
-  .signup {
+.signup {
     color: rgb(77, 75, 75);
     text-transform: uppercase;
     letter-spacing: 2px;
     display: block;
     font-weight: bold;
-    font-size:40px;
+    font-size: 40px;
     margin-bottom: 0.5em;
-  }
-  
-  .form--input {
+}
+
+.form--input {
     width: 60%;
     margin-bottom: 1.25em;
     height: 40px;
@@ -153,28 +57,28 @@ svg {
     padding: 0.8em;
     font-family: 'Inter', sans-serif;
     outline: none;
-  }
-  
-  .form--input:focus {
+}
+
+.form--input:focus {
     border: 1px solid #639;
     outline: none;
-  }
-  
-  .form--marketing {
+}
+
+.form--marketing {
     display: flex;
     margin-bottom: 1.25em;
     align-items: center;
-  }
-  
-  .form--marketing > input {
+}
+
+.form--marketing>input {
     margin-right: 0.625em;
-  }
-  
-  .form--marketing > label {
+}
+
+.form--marketing>label {
     color: grey;
-  }
-  
-  .form--submit {
+}
+
+.form--submit {
     width: 40%;
     padding: 0.625em;
     border-radius: 5px;
@@ -182,12 +86,12 @@ svg {
     background-color: rgb(56, 136, 81);
     border: 1px dashed #639;
     cursor: pointer;
-  }
-  
-  .form--submit:hover {
+}
+
+.form--submit:hover {
     color: #639;
     background-color: white;
     border: 1px dashed #639;
     cursor: pointer;
     transition: 0.5s;
-  }
+}

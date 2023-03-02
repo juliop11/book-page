@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Book } from 'src/app/models/book';
 
 @Component({
   selector: 'app-card',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class CardComponent {
 
+  @Input() cardBook: Book;
+  @Input() par: boolean;
+
+  @Output() eventBoton = new EventEmitter<Book>();
+
+
+  mandarCard() {
+    console.log(this.cardBook);
+
+    this.eventBoton.emit(this.cardBook)
+  }
+
 }
+

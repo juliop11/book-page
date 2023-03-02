@@ -27,4 +27,13 @@ export class BooksComponent {
     this.books.push(book)
 
   }
+
+  recogerCard(libro: Book){
+      
+    let findBook = this.books.filter(index => index.id_book != libro.id_book);
+    console.log(findBook);
+
+    this.books = findBook
+    
+  }
 }
