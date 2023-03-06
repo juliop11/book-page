@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Book } from 'src/app/models/book';
+import { BooksService } from 'src/app/shared/books.service';
 
 @Component({
   selector: 'app-books',
@@ -10,13 +11,24 @@ export class BooksComponent {
 
   public books: Book[];
 
-  constructor() {
+  constructor(public BooksService: BooksService) {
 
-    this.books = [
-      new Book(234, 7, "El principito", "Tapa blanda", "Antonie de Saint", 25, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5DOdmwI_VVPqoYsVGnoDX9UA3M0_hXP1BiQ&usqp=CAU"),
-      new Book(655, 6, "Harry potter", "Tapa dura", "Joanne Rowling", 35, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIBa889rxTjtuFJTW5MOA7MXT_m77i7mfGBg&usqp=CAU"),
-      new Book(557, 8, "La chica del tren", "Tapa blanda", "Paula Hawkins", 28, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFPnric7nxjrwba_ktZFJP2cOrHhorE-EGew&usqp=CAU")
-    ];
+    this.books = this.BooksService.getAll()
+  }
+
+  libroBuscar(id_book: string) {
+
+    if (id_book == "") {
+      this.books = this.BooksService.getAll();
+    }
+    else {
+      let number: number = Number(id_book);
+      let libroBuscado = this.BooksService.getOne(number);
+      if (libroBuscado != undefined) {
+        this.books = [libroBuscado];
+       
+      }
+    }
   }
 
 
@@ -28,12 +40,12 @@ export class BooksComponent {
 
   }
 
-  recogerCard(libro: Book){
-      
+  recogerCard(libro: Book) {
+
     let findBook = this.books.filter(index => index.id_book != libro.id_book);
     console.log(findBook);
 
     this.books = findBook
-    
+
   }
 }

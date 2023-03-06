@@ -1,0 +1,22 @@
+<div class="añadir">
+    <form class="form">
+        <span class="signup">Añadir libro</span>
+
+        <input type="text" placeholder="Referencia" class="form--input" #input1>
+        <input type="text" placeholder="Usuario" class="form--input" #input2>
+        <input type="text" placeholder="Titulo" class="form--input" #input3>
+        <input type="text" placeholder="Tipo" class="form--input" #input4>
+        <input type="text" placeholder="Autor" class="form--input" #input5>
+        <input type="text" placeholder="Precio" class="form--input" #input6>
+        <input type="text" placeholder="Foto" class="form--input" #input7>
+
+        <div class="form--marketing">
+
+        </div>
+        <button class="form--submit" type="button"
+            on-click="insertar(input1.value, input2.value, input3.value, input4.value, input5.value,input6.value,input7.value)">
+            Insertar libro
+        </button>
+    </form>
+</div>
+
