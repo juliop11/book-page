@@ -20,6 +20,7 @@ export class UpdateBookComponent {
     let book = new Book(id_book, id_user, title, type, author, price, photo);
 
     this.BooksService.edit(book)
+    
  
   }
 

@@ -17,14 +17,17 @@ export class BooksComponent {
   }
 
   libroBuscar(id_book: string) {
-
+    
     if (id_book == "") {
       this.books = this.BooksService.getAll();
     }
     else {
       let number: number = Number(id_book);
       let libroBuscado = this.BooksService.getOne(number);
+      
       if (libroBuscado != undefined) {
+       console.log(libroBuscado);
+    
         this.books = [libroBuscado];
        
       }
