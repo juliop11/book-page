@@ -23,36 +23,35 @@ export class BooksService {
   }
   public getOne(id_libro: number): Book {
 
-    let posicionLibro = -1;
+    let posicionLibro = this.books.find(book => book.id_book == id_libro);
 
-    for (let i = 0; i < this.books.length; i++) {
-
-      if (this.books[i].id_book == id_libro) {
-        posicionLibro = i;
-      }
-    }
-    return this.books[posicionLibro];
-
+      return posicionLibro
+  
   }
+
   public add(book: Book): void {
 
     this.books.push(book)
 
   }
-  public edit(book: Book): boolean {
-    for (let i = 0; i < this.books.length; i++) {
-      if (this.books[i].id_book == book.id_book) {
-        this.books[i] = book
-      }
-    }
-    return true;
+
+  public edit(bookEditado: Book): boolean {
+
+    let editar = this.books.findIndex(book => book.id_book == bookEditado.id_book);
+
+    this.books.splice(editar, 1, bookEditado);
+ 
+  return editar != -1;
+
   }
+
   public delete(id_book: number): boolean {
-    for (let i = 0; i < this.books.length; i++) {
-      if (this.books[i].id_book == id_book) {
-        this.books.splice(i, 1);
-      }
-    }
-    return true;
+
+    let borrarLibro = this.books.findIndex(book => book.id_book == id_book);
+
+    this.books.splice(borrarLibro, 1);
+
+    return borrarLibro != -1;
+
   }
 }

@@ -26,8 +26,8 @@ export class BooksComponent {
       let libroBuscado = this.BooksService.getOne(number);
       if (libroBuscado != undefined) {
         this.books = [libroBuscado];
-       
       }
+      else{ alert("Este libro no existe")}
     }
   }
 

@@ -121,8 +121,6 @@ h1{
   }
   
   .card-header {
-   
-    padding: 16px;
     text-align: center;
   }
   
@@ -133,7 +131,7 @@ h1{
   }
   
   .card-body {
-    padding: 16px;
+    padding: 4px;
   }
   
   .form-group {

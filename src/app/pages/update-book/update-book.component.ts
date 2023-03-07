@@ -19,8 +19,12 @@ export class UpdateBookComponent {
 
     let book = new Book(id_book, id_user, title, type, author, price, photo);
 
-    this.BooksService.edit(book)
- 
+    if (this.BooksService.edit(book)) {
+      alert("La referencia del libro ha sido modificada")
+    }
+    else {
+      alert("La referencia no ha sido encontrada")
+    }
   }
 
 }

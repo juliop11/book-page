@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-form-login',
@@ -7,4 +9,19 @@ import { Component } from '@angular/core';
 })
 export class FormLoginComponent {
 
+  public user: User;
+
+  constructor() {
+
+    this.user = new User(0, "", "", "", "", "");
+  }
+
+  onSubmit(form:NgForm ) {
+    console.log(form.value);
+    console.log(this.user);
+  }
+
+  ngOnInit(): void{
+
+  }
 }
