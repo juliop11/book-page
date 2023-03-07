@@ -11,7 +11,7 @@ export class AddBookComponent {
 
   public books: Book[];
 
-  constructor(public BooksService:BooksService) {
+  constructor(public BooksService: BooksService) {
 
 
   }
@@ -19,7 +19,8 @@ export class AddBookComponent {
 
     let book = new Book(id_book, id_user, title, type, author, price, photo);
 
-   this.BooksService.add(book);
+    this.BooksService.add(book);
 
+    alert("Se ha añadido un nuevo libro");
   }
 }

@@ -1,0 +1,28 @@
+<div class="formulario">
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" class="row g-3">
+        <div class="col-auto">
+            <label for="staticEmail2" class="visually-hidden">Email</label>
+            <input type="text" name="email" [(ngModel)]="user.email" class="form-control-plaintext" id="staticEmail2"
+                placeholder="ejem:email@gmail.com" #idEmail="ngModel"
+                [ngClass]="{'is-invalid': (idEmail.dirty || idEmail.touched) && idEmail.invalid}" email required>
+            <div *ngIf="(idEmail.dirty || idEmail.touched) && idEmail.invalid" class="invalid-feedback">
+                <div *ngIf="idEmail.errors.required">La direccion de email es obligatoria</div>
+                <div *ngIf="idEmail.errors.email">Direccion email incorrecta</div>
+            </div>
+        </div>
+        <div class="col-auto">
+            <label for="inputPassword2" class="visually-hidden">Contraseña</label>
+            <input type="password" name="password" [(ngModel)]="user.password" class="form-control" id="inputPassword2"
+                placeholder="Contraseña" #idContrasena="ngModel"
+                [ngClass]="{'is-invalid': (idContrasena.dirty || idContrasena.touched) && idContrasena.invalid}"
+                minlength="8" required>
+            <div *ngIf="(idContrasena.dirty || idContrasena.touched) && idContrasena.invalid" class="invalid-feedback">
+                <div *ngIf="idContrasena.errors.required">La clave es obligatoria</div>
+                <div *ngIf="idContrasena.errors.minlength">La clave debe tener al menos 8 caracteres</div>
+            </div>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-success mb-4" [disabled]="userForm.invalid">Confirm identity</button>
+        </div>
+    </form>
+</div>

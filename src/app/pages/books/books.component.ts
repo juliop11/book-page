@@ -29,8 +29,8 @@ export class BooksComponent {
        console.log(libroBuscado);
     
         this.books = [libroBuscado];
-       
       }
+      else{ alert("Este libro no existe")}
     }
   }
 

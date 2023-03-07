@@ -7,6 +7,7 @@
 }
 
 .cards {
+<<<<<<< HEAD
   /* border: 2px solid rgb(255, 0, 0); */
   width: 100%;
   display: flex;
@@ -22,6 +23,24 @@
 
 }
 
+=======
+    /* border: 2px solid rgb(255, 0, 0); */
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+ 
+}
+
+.buscador {
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+  width: 20%;
+  align-items: center;
+
+}
+
+>>>>>>> dia6
 #search-box {
   position: relative;
   width: 100%;
@@ -30,9 +49,17 @@
 
 #search-form {
   height: 32px;
+<<<<<<< HEAD
   border: 1px solid #feacae;
   background-color: #fff;
   overflow: hidden;
+=======
+  border: 1px solid #c5c0c0;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+>>>>>>> dia6
 }
 
 #search-text {

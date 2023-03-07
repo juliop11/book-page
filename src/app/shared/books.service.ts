@@ -26,8 +26,6 @@ export class BooksService {
 
     let posicionLibro = this.books.find(book => book.id_book == id_libro);
 
- 
-  
       return posicionLibro
   
   }
@@ -44,10 +42,6 @@ export class BooksService {
     let editar = this.books.findIndex(book => book.id_book == bookEditado.id_book);
 
     this.books.splice(editar, 1, bookEditado);
-
-    if(editar ){
-      alert("El libro " + bookEditado.id_book + " ha sido añadido");
-    }
  
   return editar != -1;
 
@@ -63,6 +57,3 @@ export class BooksService {
 
   }
 }
-
-
-
