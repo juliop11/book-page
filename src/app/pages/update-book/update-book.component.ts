@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-book',
@@ -10,7 +11,7 @@ import { BooksService } from 'src/app/shared/books.service';
 export class UpdateBookComponent {
 
 
-  constructor(public BooksService: BooksService) {
+  constructor(public BooksService: BooksService, private toastr:ToastrService) {
 
   }
 
@@ -20,10 +21,10 @@ export class UpdateBookComponent {
     let book = new Book(id_book, id_user, title, type, author, price, photo);
 
     if (this.BooksService.edit(book)) {
-      alert("La referencia del libro ha sido modificada")
+      this.toastr.success("La referencia del libro " + book.id_book + " ha sido modificada");
     }
     else {
-      alert("La referencia no ha sido encontrada")
+      this.toastr.warning("La referencia no ha sido encontrada");
     }
   }
 

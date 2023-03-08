@@ -26,24 +26,23 @@ export class BooksService {
 
     let posicionLibro = this.books.find(book => book.id_book == id_libro);
 
-      return posicionLibro
-  
+    return posicionLibro
+
   }
 
   public add(book: Book): void {
 
     this.books.push(book)
 
-    alert("Libro añdido")
   }
 
   public edit(bookEditado: Book): boolean {
 
     let editar = this.books.findIndex(book => book.id_book == bookEditado.id_book);
-
-    this.books.splice(editar, 1, bookEditado);
- 
-  return editar != -1;
+    if (editar != -1) {
+      this.books.splice(editar, 1, bookEditado);
+    }
+    return editar != -1;
 
   }
 
