@@ -1,57 +1,48 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/book';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
 
-  private books: Book[]
+  private url = "http://localhost:3000/books" // url del api
 
-  constructor() {
+  public book: Book;
 
-    this.books = [
-      new Book(234, 7, "El principito", "Tapa blanda", "Antonie de Saint", 25, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5DOdmwI_VVPqoYsVGnoDX9UA3M0_hXP1BiQ&usqp=CAU"),
-      new Book(655, 6, "Harry potter", "Tapa dura", "Joanne Rowling", 35, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIBa889rxTjtuFJTW5MOA7MXT_m77i7mfGBg&usqp=CAU"),
-      new Book(557, 8, "La chica del tren", "Tapa blanda", "Paula Hawkins", 28, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFPnric7nxjrwba_ktZFJP2cOrHhorE-EGew&usqp=CAU")
-    ];
+  constructor(private http: HttpClient) { 
 
-  }
-  public getAll(): Book[] {
-
-    return this.books
-  }
-  public getOne(id_libro: number): Book {
-
-    let posicionLibro = this.books.find(book => book.id_book == id_libro);
-
-      return posicionLibro
-  
-  }
-
-  public add(book: Book): void {
-
-    this.books.push(book)
 
   }
 
-  public edit(bookEditado: Book): boolean {
+  public getBooks() {
 
-    let editar = this.books.findIndex(book => book.id_book == bookEditado.id_book);
-
-    this.books.splice(editar, 1, bookEditado);
- 
-  return editar != -1;
+    return this.http.get(this.url)
 
   }
 
-  public delete(id_book: number): boolean {
+  public getBook(id_book:number){
+    return this.http.get(`${this.url}?id=${id_book}`)
+  }
 
-    let borrarLibro = this.books.findIndex(book => book.id_book == id_book);
 
-    this.books.splice(borrarLibro, 1);
+  public postBook(newBook: Book) {
 
-    return borrarLibro != -1;
+    return this.http.post(this.url, newBook)
 
   }
-}
+
+
+  public edit(book:Book){
+    return this.http.put(this.url, book);
+  }
+
+
+  public deleteBook(id: number) {
+    
+    let httpOptions = {headers: null, body: {id_book:id}}
+    return this.http.delete(this.url, httpOptions)
+
+  }
+ }

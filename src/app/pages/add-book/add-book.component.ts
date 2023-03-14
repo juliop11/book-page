@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
+import { ToastrService } from 'ngx-toastr';
+import { Respuesta } from 'src/app/models/respuesta';
 
 @Component({
   selector: 'app-add-book',
@@ -9,18 +11,38 @@ import { BooksService } from 'src/app/shared/books.service';
 })
 export class AddBookComponent {
 
-  public books: Book[];
+  public message: string;
 
-  constructor(public BooksService: BooksService) {
+  constructor(public BooksService: BooksService, private toastr: ToastrService) {
 
-
+    this.message = null;
   }
-  public insertar(id_book: number, id_user: number, title: string, type: string, author: string, price: number, photo: string) {
 
-    let book = new Book(id_book, id_user, title, type, author, price, photo);
+  insertarLibro(id_book: string, id_user: string, title: string, type: string, author: string, price: string, photo: string) {
 
-    this.BooksService.add(book);
+    let idBook = parseInt(id_book)
+    let idUser = parseInt(id_user)
+    let precio = parseInt(price)
 
-    alert("Se ha añadido un nuevo libro");
+    if (id_book == null || id_user == null || title == "" || type == "" 
+    || author == "" || price == null || photo == "")
+
+      this.toastr.error("Flata un campo obligatorio. ", "", { timeOut: 2000, positionClass: 'toast.top.center' });
+
+    else {
+      let newBook: Book = new Book(idBook, idUser, title, type, author, precio, photo);
+
+      this.BooksService.postBook(newBook).subscribe((resp: Respuesta) => {
+        if (!resp.error) {
+
+          this.toastr.success("Se ha añadido un nuevo libro. ", "", { timeOut: 2000, positionClass: 'toast.top.center' });
+
+          this.BooksService.book = null;
+        }
+        else
+        this.toastr.warning("El libro ya existe", "", { timeOut: 2000, positionClass: 'toast.top.center' })
+      })
+    }
+
   }
 }
