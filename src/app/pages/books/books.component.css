@@ -1,9 +1,9 @@
 .caja {
-  /* border: 2px solid black; */
-  background-image: url("https://img.freepik.com/foto-gratis/vista-frontal-escritorio-libros-apilados-espacio-copiar_23-2148827255.jpg?size=626&ext=jpg&ga=GA1.2.939502610.1676634689&semt=sph");
-  background-repeat: no-repeat;
-  background-size: cover;
-
+    /* border: 2px solid black; */
+    background-image: url("https://img.freepik.com/foto-gratis/vista-frontal-escritorio-libros-apilados-espacio-copiar_23-2148827255.jpg?size=626&ext=jpg&ga=GA1.2.939502610.1676634689&semt=sph");
+    background-repeat: no-repeat;
+    background-size: cover;
+height: 100vh;
 }
 
 .cards {

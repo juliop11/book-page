@@ -12,14 +12,14 @@ export class CardComponent {
   @Input() cardBook: Book;
   @Input() par: boolean;
 
-  @Output() eventBoton = new EventEmitter<Book>();
-constructor(public BooksService:BooksService){
+  @Output() eventBoton = new EventEmitter<Number>();
+constructor(){
 
 }
 
- mandarCard() {
+ mandarCard(idBook:number) {
     
-    this.BooksService.delete(this.cardBook.id_book)
+    this.eventBoton.emit(idBook)
   }
 
 }
