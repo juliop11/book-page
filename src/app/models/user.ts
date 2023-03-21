@@ -1,6 +1,6 @@
 export class User {
 
-    Id_user: number
+    id_user: number
     name: string
     last_name: string
     email: string
@@ -9,7 +9,7 @@ export class User {
 
     constructor(id_usuario: number, nombre: string, apellido: string, correo: string, foto: string, contraseña: string) {
 
-        this.Id_user = id_usuario,
+        this.id_user = id_usuario,
             this.name = nombre,
             this.last_name = apellido,
             this.email = correo,
