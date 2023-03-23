@@ -16,6 +16,21 @@ export class FormRegisterComponent {
   constructor(private formBuilder: FormBuilder, private userService: UserService) {
 
     this.buildForm();
+
+  }
+
+  public register() {
+    
+    let dataForm = this.myForm.value;
+
+    let user = new User(0, dataForm.nombre, null, dataForm.email, null, dataForm.password);
+    console.log(user);
+
+    this.userService.postRegister(user).subscribe(data => {
+
+      console.log(data);
+
+    })
   }
 
   private buildForm() {
@@ -24,9 +39,9 @@ export class FormRegisterComponent {
 
     this.myForm = this.formBuilder.group({
       nombre: [, Validators.required],
-      apellido: [, Validators.required],
-      correo: [, [Validators.required, Validators.email]],
-      foto: [, Validators.required],
+      // apellido: [, Validators.required],
+      email: [, [Validators.required, Validators.email]],
+      // foto: [, Validators.required],
       password: [, [Validators.required, Validators.minLength(minPassLength)]],
       confirmarContrasena: [, [Validators.required, this.checkPassword]]
     });
@@ -42,18 +57,7 @@ export class FormRegisterComponent {
   }
 
 
-  public register() {
 
-    let dataForm = this.myForm.value;
-    let user = new User(0, dataForm.nombre, dataForm.apellido, dataForm.correo, null, dataForm.contraseña);
-    console.log(user);
-
-    this.userService.postRegister(user).subscribe(data => {
-
-      console.log(data);
-
-    })
-  }
 
   ngOnInit(): void {
 

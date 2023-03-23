@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Book } from '../models/book';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 
@@ -23,11 +22,14 @@ export class UserService {
     }
 
     public postRegister(user: User) {
+        console.log(user);
+
 
         return this.http.post(this.url, user)
     }
 
     public postLogin(user: User) {
+        console.log(user);
 
         return this.http.post(this.url2, user)
     }

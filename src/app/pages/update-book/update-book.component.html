@@ -3,7 +3,6 @@
         <span class="signup">Modificar libro</span>
 
         <input type="text" placeholder="Referencia" class="form--input" #input1>
-        <input type="text" placeholder="Usuario" class="form--input" #input2>
         <input type="text" placeholder="Titulo" class="form--input" #input3>
         <input type="text" placeholder="Tipo" class="form--input" #input4>
         <input type="text" placeholder="Autor" class="form--input" #input5>
@@ -14,7 +13,7 @@
 
         </div>
         <button class="form--submit" type="button"
-            on-click="insertar(input1.value, input2.value, input3.value, input4.value, input5.value,input6.value,input7.value)">
+            on-click="insertar(input1.value, input3.value, input4.value, input5.value,input6.value,input7.value)">
             Insertar libro
         </button>
     </form>

@@ -8,7 +8,7 @@ export class Book {
     price: number
     photo: string
 
-    constructor(libro: number = 0, usuario: number = 0, titulo: string, tipo: string, autor: string, precio: number, foto: string){
+    constructor( titulo: string, tipo: string, autor: string, precio: number, foto: string, usuario: number = 0, libro: number = 0){
 
         this.id_book = libro,
         this.id_user = usuario,

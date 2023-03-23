@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component} from '@angular/core';
 import { UserService } from 'src/app/shared/user.service';
 
 @Component({
@@ -6,15 +6,9 @@ import { UserService } from 'src/app/shared/user.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent {
 
-  isUserLoggedIn: boolean = false;
-
-  constructor(private userService: UserService) { }
-
-  ngOnInit() {
-    this.userService.userHeader.subscribe(
-      (userHeader: boolean) => this.isUserLoggedIn = userHeader
-    );
-  }
+  constructor(public userService: UserService) {
+   
+   }
 }

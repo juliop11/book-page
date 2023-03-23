@@ -1,6 +1,7 @@
 <div class="caja">
     <form [formGroup]="myForm" class="form">
         <span class="signup">Registrate</span>
+
         <div class="form-group">
             <input type="text" style="width: 350px;" formControlName="nombre" class="form-control" placeholder="Nombre"
                 [ngClass]="{'is-invalid': (myForm.get('nombre').dirty || myForm.get('nombre').touched) && !myForm.get('nombre').valid}">
@@ -8,8 +9,9 @@
                 El nombre es necesario
             </div>
         </div>
+
         <div class="form-group">
-            <input type="email" style="width: 350px;" formControlName="email" class="form-control"
+            <input type="text" style="width: 350px;" formControlName="email" class="form-control input"
                 placeholder="ejem:email@gmail.com"
                 [ngClass]="{'is-invalid': (myForm.get('email').dirty || myForm.get('email').touched) && !myForm.get('email').valid}">
             <div *ngIf="!myForm.get('email').valid" class="invalid-feedback">
@@ -17,6 +19,7 @@
                 <div *ngIf="myForm.get('email').errors.email">Direccion email incorrecta</div>
             </div>
         </div>
+
         <div class="form-group">
             <input type="password" style="width: 350px;" formControlName="password" class="form-control"
                 placeholder="Contraseña"
@@ -26,6 +29,7 @@
                 <div *ngIf="myForm.get('password').errors.minlength">La clave debe tener al menos 8 caracteres</div>
             </div>
         </div>
+
         <div class="form-group">
             <input type="password" style="width: 350px;" formControlName="confirmarContrasena" class="form-control"
                 placeholder="Repetir contraseña"

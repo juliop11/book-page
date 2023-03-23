@@ -3,12 +3,12 @@
         <h1>My books</h1>
     </div>
     <div class="palabras">
-        <a *ngIf="!isUserLoggedIn" routerLink="home">Home</a>
-        <a *ngIf="!isUserLoggedIn" routerLink="register">Register</a>
-        <a *ngIf="isUserLoggedIn" routerLink="profile">Profile</a>
-        <a *ngIf="isUserLoggedIn" routerLink="books">Books</a>
-        <a *ngIf="isUserLoggedIn" routerLink="addBook">AddBook</a>
-        <a *ngIf="isUserLoggedIn" routerLink="updatebook">UpdateBook</a>
-        <a *ngIf="!isUserLoggedIn" routerLink="login">Login</a>
+        <a *ngIf="!this.userService.logueado" routerLinkActive="active-link" routerLink="home">Home</a>
+        <a *ngIf="!this.userService.logueado" routerLinkActive="active-link" routerLink="register">Register</a>
+        <a *ngIf="this.userService.logueado" routerLinkActive="active-link" routerLink="profile">Profile</a>
+        <a *ngIf="this.userService.logueado" routerLinkActive="active-link" routerLink="books">Books</a>
+        <a *ngIf="this.userService.logueado" routerLinkActive="active-link" routerLink="addBook">AddBook</a>
+        <a *ngIf="this.userService.logueado" routerLinkActive="active-link" routerLink="updatebook">UpdateBook</a>
+        <a *ngIf="!this.userService.logueado" routerLinkActive="active-link" routerLink="login">Login</a>
     </div>
 </header>

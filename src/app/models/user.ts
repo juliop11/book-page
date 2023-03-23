@@ -7,13 +7,13 @@ export class User {
     photo: string
     password: string
 
-    constructor(id_usuario: number, nombre: string, apellido: string, correo: string, foto: string, contraseña: string) {
+    constructor(id_usuario: number, nombre: string, apellido: string, correo: string, foto: string, password: string) {
 
         this.id_user = id_usuario,
             this.name = nombre,
             this.last_name = apellido,
             this.email = correo,
             this.photo = foto,
-            this.password = contraseña
+            this.password = password
     }
 }
