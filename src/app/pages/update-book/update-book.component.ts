@@ -20,7 +20,7 @@ export class UpdateBookComponent {
   public insertar(id_book: number, title: string, type: string, author: string, price: number, photo: string) {
 
     let newBook = new Book(title, type, author, price, photo, this.userService.user.id_user, id_book);
-console.log(newBook);
+    console.log(newBook);
 
     (this.BooksService.edit(newBook).subscribe((data) => {
 
