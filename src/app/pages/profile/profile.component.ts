@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,22 +9,27 @@ import { User } from 'src/app/models/user';
 })
 export class ProfileComponent {
 
-  usuario: User;
+  public user: User;
 
-  constructor() {
-
-    this.usuario = new User(1234, "Julio", "Pérez", "julioperezobrero@hotmail.com", "https://img.freepik.com/foto-gratis/hombre-sujetando-vaso_1258-340.jpg?size=626&ext=jpg&ga=GA1.2.939502610.1676634689&semt=sph", "456123");
+  constructor(public userService: UserService) {
 
   }
   public modificar(nuevoNombre: string, nuevoApellido: string, nuevoCorrero: string, nuevafoto: string) {
 
-    this.usuario.name = nuevoNombre,
-      this.usuario.last_name = nuevoApellido,
-      this.usuario.email = nuevoCorrero,
-      this.usuario.photo = nuevafoto
+    let newUser = new User(this.userService.user.id_user,
+      this.userService.user.name = nuevoNombre,
+      this.userService.user.last_name = nuevoApellido,
+      this.userService.user.email = nuevoCorrero,
+      this.userService.user.photo = nuevafoto,
+      this.userService.user.password)
 
-      console.log(this.usuario);
-      
+    console.log(newUser);
+
+    // this.userService.edit(newUser).subscribe((data) => {
+
+    //   console.log(data);
+
+    // })
   }
 }
 
