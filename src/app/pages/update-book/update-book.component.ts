@@ -17,16 +17,23 @@ export class UpdateBookComponent {
 
 
   }
-  public insertar(id_book: number, title: string, type: string, author: string, price: number, photo: string) {
+  public insertar(id_book: number, title: string, type: string, author: string, price: string, photo: string ) {
 
-    let newBook = new Book(title, type, author, price, photo, this.userService.user.id_user, id_book);
+    let newBook = new Book(title=="" ? null:title, 
+                           type=="" ? null:type, 
+                           author=="" ? null:author, 
+                           price=="" ? null:Number(price), 
+                           photo=="" ? null:photo,
+                           this.userService.user.id_user, 
+                           id_book);
     console.log(newBook);
 
-    (this.BooksService.edit(newBook).subscribe((data) => {
+    this.BooksService.edit(newBook).subscribe((data) => {
 
+      console.log(data);
       this.toastr.success("La referencia del libro " + newBook.id_book + " ha sido modificada");
 
-    }))
+    })
 
   }
 }

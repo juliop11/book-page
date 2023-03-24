@@ -52,7 +52,6 @@ export class BooksService {
     console.log(id_book);
     console.log(id_user);
     
-    
     let httpOptions = { headers: null, body: {id_user:id_user, id_book: id_book } }
     return this.http.delete(this.url, httpOptions)
 
