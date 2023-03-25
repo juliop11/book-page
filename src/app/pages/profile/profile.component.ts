@@ -25,11 +25,11 @@ export class ProfileComponent {
 
     console.log(newUser);
 
-    // this.userService.edit(newUser).subscribe((data) => {
+    this.userService.edit(newUser).subscribe((data) => {
 
-    //   console.log(data);
+      console.log(data);
 
-    // })
+    })
   }
 }
 

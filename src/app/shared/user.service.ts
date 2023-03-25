@@ -9,6 +9,7 @@ export class UserService {
 
     private url = "http://localhost:3000/register" // url del api
     private url2 = "http://localhost:3000/login"
+    private url3 =  "http://localhost:3000/usuarios"
 
     public logueado: boolean;
     public user: User;
@@ -34,4 +35,9 @@ export class UserService {
         return this.http.post(this.url2, user)
     }
 
+    public edit(user:User){
+        console.log(user);
+        
+        return this.http.put(this.url3, user)
+    }
 }
